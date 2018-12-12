@@ -1,1 +1,126 @@
-Hello
+<html>
+<head>
+  <style>
+	body{
+		background: #FAFAFA;
+	}
+	
+	.container{
+		margin-left:5%;
+		margin-right:5%;
+	}
+	.row{
+		padding: 0 4px;
+		width:100%;
+		display:block;
+	}
+	
+	.column{
+		padding:4px;
+		margin-top: 8px;
+		width: 32%;
+		float:right;
+	}
+	
+	.column img{
+		margin-top: 8px;
+		width: 100%;
+	}
+	.title{
+		width:100%;
+		text-align:center;
+		
+	}
+	.title img{
+		width:100%;
+	}
+	
+  </style>
+</head>
+<body>
+	<div class="title">
+			<img src="hbd.png">
+	</div>
+
+	<div id="main" class="container">
+		
+		<div class="row">
+			<div id="col1" class="column">
+				
+			</div>
+			<div id="col2" class="column">
+				
+			</div>
+			<div id="col3" class="column">
+				
+			</div>
+		</div>
+	</div>
+</body>
+	  
+	  <script>
+	  
+	  function show_image(src, container) {
+		var img = document.createElement("img");
+		img.src = src;
+
+		// This next line will just add it to the <body> tag
+			container.appendChild(img);
+		
+		}
+		
+		var main = document.getElementById("main");
+		var folder = "images"
+		var tick_tok = 0;
+		
+		var col1 = document.getElementById("col1");
+		var col2 = document.getElementById("col2");
+		var col3 = document.getElementById("col3");
+		
+		var sources = [
+		 "0H6A0049.JPG",
+		 "0H6A0232.JPG",
+		 "0H6A0288.JPG",
+		 "0H6A9793.JPG",
+		 "21112010(002).jpg",
+		 "a3123747-e48c-47eb-83a7-84f8c605be1d.jpg",
+		 "DSC_0096--8x12 With Frame 376G.JPG",
+		 "DSC_9989.JPG",
+		 "DSCN0206.JPG",
+		 "IMG_20180726_104215.jpg",
+		 "IMG_20180808_153851.jpg",
+		 "IMG_4376 (2).JPG",
+		 "img09594-15.jpg",
+		 "img09594-26.jpg",
+		 "img09594-44.jpg",
+		 "img09594-69.jpg",
+		 "IMG-20171211-WA0001.jpg",
+		 "IMG-20180318-WA0012.jpg",
+		 "IMG-20180530-WA0000.jpg",
+		 "IMG-20180531-WA0012.jpg",
+		 "IMG-20180819-WA0030.jpg",
+		 "IMG-20180822-WA0024.jpg",
+
+
+		
+		]
+		
+		while(sources.length>0)
+		{
+			i = Math.floor(Math.random() * sources.length);  
+			if(tick_tok == 0)
+				show_image(folder+"/"+sources[i], col1);
+			else if(tick_tok == 1)
+				show_image(folder+"/"+sources[i], col2);
+			else if(tick_tok == 2)
+				show_image(folder+"/"+sources[i], col3);
+			tick_tok = (tick_tok + 1) % 3;
+			sources.splice(i, 1);
+			
+		}
+
+		
+		
+		
+	  </script>
+</html>
